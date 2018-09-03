@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kaprekar's Consonant</title>
+        
+        
+        
+<style>
+.back{
+        width:100%;
+        height:700px;
+        background: linear-gradient(45deg, yellow, white);
+}
+
+.sub{
+        margin: 1% 25%;
+        width:50%;
+        height:40px;
+        background:magenta;
+        border:hidden;
+}
+
+.number{
+    background:linear-gradient(45deg, white, magenta);
+    border:hidden;
+    width:50%;
+    margin: 15px 25%;
+    height:30px;
+    text-align:center;
+}
+
+</style>
+
+
+
+</head>
+    
+<body onload = "alerty()">
+
+<div class = "back">   
+<input type ="text" class="number" value =   "Enter some digit here">
+<button class = "sub"> Tap me already!</button>
+</div>
+
+
+
+
+<script>
+
+//VARIABLES ARE HERE.....................
+
+var num = document.querySelector(".number");
+var sub = document.querySelector (".sub");
+
+sub.addEventListener("click",check);
+num.addEventListener("click",clear);
+
+var iter = 0;
+//FUNCTIONS ARE HERE..................
+
+//Clear field when tap:
+function clear(){
+    num.value = "";
+}
+
+//Check for input mistakes 
+function check() {
+//If empty
+if(num.value.trim() == ''){
+        alert("You forgot to put in a number...");}
+//if not a number
+else if(isNaN(num.value)){
+    alert ("What did you just put in??? \nDo you know the difference between digit and everything else!?");
+    alert ("Guess not, you have one more try.\nDont mess it up!");}
+//if number consist only 4 digits
+else if(num.value.length != 4){
+    alert ("Did u read the rules?! What did it say? You must enter only 4-digit number");}
+//if number have 2 different digits
+else if(!isSame()){
+    alert("Dude! Do you want your device to explode? \nAt least 2 digits must be different !");}
+else{
+console.log("Check passed!");
+    calculate();}
+}
+
+function isSame(){
+    var p = 0;
+    arr = num.value.split('');
+    for (j = 0; j < 4; j++){
+        for (i = 0; i < 4; i++){
+            if(arr[j] == arr[i]){ p++;}
+        }
+    }
+if (p < 11){return true;}
+else {return false;}
+}
+
+//put digit in right order and extract biggest from smallest
+function diff(numb){
+var arr, arrSplit, arrReverse,arrStraight;
+numb = String(numb);
+++iter;
+   arr = numb.split('');
+   arrSplit = arr.sort();
+   arrReverse = arrSplit.reverse();
+   
+var h = arrReverse.join('') - arrReverse.reverse().join(''); 
+
+console.log (arrReverse.reverse().join('') + " - " + arrReverse.reverse().join('') + " = " + h + " ---- " + iter + " iteration");
+return h;
+}
+
+// main logic of Kaprekar's Consonant
+function calculate (){
+var a = 1;
+var b = 2;
+var c,d;
+var i = 0;
+var number = num.value;
+   while(number != 6174 && number != 0){
+       c = diff(number);
+       ++i;
+     if (c != 6174 && number != 0){
+       d = diff(c);
+       ++i;
+       number = d;}
+       else{
+           number = c;
+       }
+   }
+   if(number == 0){
+       alert("Congratz! You need to work as bug finder !");}
+// some fun challenge
+else{
+   if(i<3){
+   alert("What a looser.Try to make up more complicated digit! It took only: "+ i + " iterations! Check Console.log!");}
+   else if(i>=3 && i <=6) {
+   alert("Well well, not bad, but not the best. Keep trying! It took only: "+ i + " iterations! Check Console.log!");}
+   else if (i>6){
+   alert("Wow! Did someone told you the right digit to enter ?? You are chitting! It took: "+ i + " iterations! Check Console.log!");}
+}
+   iter = 0;
+};
+
+//function that runs on start(Greetings)
+function alerty(){
+    alert(" Welcome! \n It is Kaprekar's Consonant!");
+    alert(" Please enter: \n ONLY 4-digit number with \n AT LEAST, 2 different digits!");
+};
+ 
+</script>
+</body>
+</html>
