@@ -1,5 +1,5 @@
 <h1> Welcome! </h1>
-  A bit of my work: 
+ <h3> A bit of my work: </h3> <br>
 
 <ul>
   <li> <strong> Some messing with Code </strong>
