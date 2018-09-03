@@ -1,11 +1,4 @@
-<style>
-  h1{
-    color:red;
-  }
- </style>
-
-
-<h1> Welcome! </h1>
+<h1 style = "color:red"> Welcome! </h1>
 <p> Follow next to see my messing with code: </p>
 
 <ul>
