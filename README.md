@@ -1,2 +1,2 @@
 # mironoart.github.io
-pages
+page
