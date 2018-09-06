@@ -1,9 +1,0 @@
-body{
-    display: flex;
-    justify-content: center;
-    padding: 50px;
-    background: linear-gradient(45deg,#e90cb9, yellow);
-    font-family: sans-serif;
-    min-height:100vh;
-    max-height:100%;
-}
